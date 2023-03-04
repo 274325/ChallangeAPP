@@ -1,76 +1,63 @@
-﻿// zadanie dzień 5 :)
+﻿//dzień 6 zadanie domowe
 
-// wynik liczby 25957
+using ChalangeAPP;
+using System;
 
-using System.ComponentModel.DataAnnotations.Schema;
+Employee employee1 = new Employee("Krzyś", 35, "Noga2");
+Employee employee2 = new Employee("Adaś", 22, "Pionek");
+Employee employee3 = new Employee("Ilona", 42, "Serduszko");
 
-int number = 25957;
-string numberToString = number.ToString();
-char[] letters = numberToString.ToArray();     
+employee1.AddScore(7);
+employee1.AddScore(7);
+employee1.AddScore(9);
+employee1.AddScore(10);
+employee1.AddScore(4);
 
-int mycount0 = 0;
-int mycount1 = 0;
-int mycount2 = 0;
-int mycount3 = 0;
-int mycount4 = 0;
-int mycount5 = 0;
-int mycount6 = 0;
-int mycount7 = 0;
-int mycount8 = 0;
-int mycount9 = 0;
+employee2.AddScore(8);
+employee2.AddScore(8);
+employee2.AddScore(5);
+employee2.AddScore(8);
+employee2.AddScore(2);
 
-foreach (char letter in letters)
+employee3.AddScore(6);
+employee3.AddScore(5);
+employee3.AddScore(40);
+employee3.AddScore(9);
+
+
+List<Employee> employees = new List<Employee>()
 {
-    if(letter == '0')
+    employee1, employee2, employee3
+}
+;
+
+int maxResult = -1;
+Employee employeeWithMaxResult = null;
+
+foreach (var Employee in employees)
+{
+    if (Employee.Result > maxResult)
     {
-        mycount0++;
-    }  
-    else if (letter =='1')
-    {
-        mycount1++;
-    }
-    else if (letter == '2')
-    {
-        mycount2++;
-    }
-    else if (letter == '3')
-    {
-        mycount3++;
-    }
-    else if (letter == '4')
-    {
-        mycount4++;
-    }
-    else if (letter == '5')
-    { 
-        mycount5++;
-    }
-    else if (letter == '6')
-    {
-        mycount6++;
-    }
-    else if (letter == '7')
-    {
-        mycount7++;
-    }
-    else if (letter == '8')
-    {
-        mycount8++;
-    }
-    else if (letter == '9')
-    {
-        mycount9++;
+        maxResult = Employee.Result;
+        employeeWithMaxResult = Employee;
     }
 }
-Console.WriteLine("zadanie dzień 5");
-Console.WriteLine(" ilu krotnie występuje dana cyfra w liczbie " + number);
-Console.WriteLine("liczba 0 " + "pojawia się " + mycount0 + " krotnie");
-Console.WriteLine("liczba 1 " + "pojawia się " + mycount1 + " krotnie");
-Console.WriteLine("liczba 2 " + "pojawia się " + mycount2 + " krotnie");
-Console.WriteLine("liczba 3 " + "pojawia się " + mycount3 + " krotnie");
-Console.WriteLine("liczba 4 " + "pojawia się " + mycount4 + " krotnie");
-Console.WriteLine("liczba 5 " + "pojawia się " + mycount5 + " krotnie");
-Console.WriteLine("liczba 6 " + "pojawia się " + mycount6 + " krotnie");
-Console.WriteLine("liczba 7 " + "pojawia się " + mycount7 + " krotnie");
-Console.WriteLine("liczba 8 " + "pojawia się " + mycount8 + " krotnie");
-Console.WriteLine("liczba 9 " + "pojawia się " + mycount9 + " krotnie");
+//analiza, wynik
+
+if (employee1.Result >= employee2.Result && employee1.Result >= employee3.Result)
+{
+    Console.WriteLine("osobą o najlepszym wyniku jest: " + employee1.Name + " _ " + employee1.Surname + "_" + employee1.Age + "_" + "lat; " + "a jego wynik to: " + employee1.Result);
+
+}
+else
+{
+    if (employee2.Result >= employee1.Result && employee2.Result >= employee3.Result)
+    {
+        Console.WriteLine("osobą o najlepszym wyniku jest: " + employee2.Name + " _ " + employee2.Surname + "_" + employee2.Age + "_" + "lat; " + "a jego wynik to: " + employee2.Result);
+    }
+
+    else
+    {
+        Console.WriteLine("osobą o najlepszym wyniku jest: " + employee3.Name + " _ " + employee3.Surname + "_" + employee3.Age + "_" + "lata; " + "a jej wynik to: " + employee3.Result);
+    }
+}
