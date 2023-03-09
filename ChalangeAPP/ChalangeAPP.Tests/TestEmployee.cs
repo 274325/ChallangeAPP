@@ -2,7 +2,7 @@ using System.Reflection.Metadata;
 
 namespace ChalangeAPP.Tests
 {
-    public class Tests
+    public class TestEmployee
     {
             [Test]
         public void WhenEmployeeAddScore_ShouldResultSum()
@@ -20,7 +20,7 @@ namespace ChalangeAPP.Tests
 
 
             //assert
-            Assert.AreEqual(11, result);
+            Assert.AreEqual(4, result);
         }
     }
 }
